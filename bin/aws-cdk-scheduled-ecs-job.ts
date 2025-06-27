@@ -35,7 +35,14 @@ const pipelineStack = new PipelineStack(app, 'AwsCdkScheduledEcsJobPipelinestack
   ecr: jobStack.ecr
 });
 
-
+/**
+ * This is a custom class type we use to pull in our global and environment
+ * specific configurations. There are never any credentials or secrets stored 
+ * here but it may contain dbnames, usernames, github repo urls, etc.
+ * 
+ * The information resides in the cdk.json file near the bottom. Again, this 
+ * is not for credentials, just descriptions and configurations of your stack(s).
+ */
 export type CDKContext = {
   appName: string;
   serviceName: string;
